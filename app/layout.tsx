@@ -1,7 +1,10 @@
 import type { Metadata } from 'next';
+import { headers } from 'next/headers';
+import { LocaleProvider } from '@/components/portal/locale';
 import './portal.css';
 import './pages.css';
 import './responsive.css';
+import './bilingual.css';
 import { SiteHeader, SiteFooter } from '@/components/portal/chrome';
 export const metadata: Metadata = {
   metadataBase: new URL('https://bim-u.com'),
@@ -26,15 +29,19 @@ export const metadata: Metadata = {
     ],
   },
 };
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const requestHeaders = await headers();
+  const english = requestHeaders.get('x-bimu-locale') === 'en';
   return (
-    <html lang="zh-CN">
+    <html lang={english ? 'en' : 'zh-CN'}>
       <body>
-        <SiteHeader />
-        {children}
-        <SiteFooter />
+        <LocaleProvider>
+          <SiteHeader />
+          {children}
+          <SiteFooter />
+        </LocaleProvider>
       </body>
     </html>
   );

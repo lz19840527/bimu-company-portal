@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next';
+import { projects } from '@/lib/projects';
 export default function sitemap(): MetadataRoute.Sitemap {
   const paths = [
     '',
@@ -8,17 +9,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/products/bcdc',
     '/products/bcv',
     '/projects',
-    '/projects/deqing',
-    '/projects/fuyang',
-    '/projects/wenling',
-    '/projects/shenzhen',
     '/resources',
     '/about',
     '/contact',
+    ...projects.map((p) => '/projects/' + p.slug),
   ];
-  return paths.map((path) => ({
-    url: `https://bim-u.com${path || '/'}`,
-    changeFrequency: 'monthly',
-    priority: path === '' ? 1 : path.split('/').length === 2 ? 0.8 : 0.7,
-  }));
+  return paths
+    .flatMap((p) => [p, '/en' + p])
+    .map((p) => ({
+      url: 'https://bim-u.com' + (p || '/'),
+      changeFrequency: 'monthly',
+      priority: p === '' || p === '/en' ? 1 : 0.7,
+    }));
 }

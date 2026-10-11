@@ -1,4 +1,12 @@
-export type ProjectCategory = '文化公共' | '商务会展' | '交通建筑';
+import portfolio from './portfolio.json';
+export type ProjectCategory =
+  | '文化公共'
+  | '商务会展'
+  | '交通建筑'
+  | '体育建筑'
+  | '教育建筑'
+  | '酒店住宅'
+  | '其他项目';
 
 export type Project = {
   slug: string;
@@ -18,15 +26,22 @@ export type Project = {
   outcomes: string[];
   sourcePages: string;
   sourcePage: number;
+  images?: string[];
+  isArchiveOnly?: boolean;
+  brochurePage?: number;
 };
 
 export const projectCategories: ProjectCategory[] = [
   '文化公共',
   '商务会展',
   '交通建筑',
+  '体育建筑',
+  '教育建筑',
+  '酒店住宅',
+  '其他项目',
 ];
 
-export const projects: Project[] = [
+const featuredProjects: Project[] = [
   {
     slug: 'deqing',
     name: '德清科技新城',
@@ -160,6 +175,40 @@ export const projects: Project[] = [
     sourcePage: 38,
   },
 ];
+
+export const projects: Project[] = portfolio.map((item) => {
+  const featured = featuredProjects.find((p) => p.slug === item.featuredSlug);
+  const base: Project = {
+    slug: item.slug,
+    name: item.name,
+    subtitle: item.service,
+    location: item.location || '资料未注明',
+    category: item.category as ProjectCategory,
+    image: item.images[0],
+    summary: item.service,
+    tags: [item.service],
+    service: item.service,
+    background: '宣传册收录工程',
+    responsibility: item.service,
+    challenge: '',
+    methods: [],
+    delivery: '',
+    outcomes: [],
+    sourcePages: String(item.page),
+    sourcePage: item.page,
+    isArchiveOnly: !featured,
+  };
+  return {
+    ...base,
+    ...featured,
+    slug: item.slug,
+    category: item.category as ProjectCategory,
+    service: item.service,
+    images: item.images,
+    image: item.images[0],
+    brochurePage: item.page,
+  };
+});
 
 export function getProject(slug: string): Project {
   const project = projects.find((item) => item.slug === slug);
