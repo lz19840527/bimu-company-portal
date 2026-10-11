@@ -40,3 +40,9 @@ next-env.d.ts
 /tmp/
 *.tar.gz
 *.tsbuildinfo
+
+# Local production sources and verification reports are not website assets.
+/output/
+/video-production/
+/.sites-runtime/
+/.sites-checkout*/
