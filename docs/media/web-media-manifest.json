@@ -1,0 +1,59 @@
+{
+  "archiveDate": "2026-10-22",
+  "hashBasis": "Current repository files, compared with retained media adaptation manifest",
+  "mediaBaselineDate": "2026-10-02T16:59:24.097599+00:00",
+  "videos": [
+    {
+      "id": "bcdt-demo",
+      "title": "BCDT 产品功能演示",
+      "path": "public/media/bcdt-demo.mp4",
+      "bytes": 8984160,
+      "sha256": "e9aa7bfe11f86b58c2852159cf7c62f86bfa6275db1472a1d9e00580ad643cb5",
+      "durationSeconds": 230,
+      "width": 1280,
+      "height": 720,
+      "videoCodec": "h264",
+      "audioCodec": "aac",
+      "sourceLocalPath": "output/video/产品独立演示/BCDT-产品功能演示-230秒.mp4"
+    },
+    {
+      "id": "bcdc-demo",
+      "title": "BCDC 产品功能演示",
+      "path": "public/media/bcdc-demo.mp4",
+      "bytes": 6516216,
+      "sha256": "580c527c7d7843f4dd5142aa76e9f40fe582bbb3d814a13a81aceb936b1986df",
+      "durationSeconds": 160,
+      "width": 1280,
+      "height": 720,
+      "videoCodec": "h264",
+      "audioCodec": "aac",
+      "sourceLocalPath": "output/video/产品独立演示/BCDC-产品功能演示-160秒.mp4"
+    },
+    {
+      "id": "bcv-demo",
+      "title": "BCV 产品功能演示",
+      "path": "public/media/bcv-demo.mp4",
+      "bytes": 6979300,
+      "sha256": "d9967f517ea9b95d9c244bffdda521acbd51a611422a697161a1ed31646e4784",
+      "durationSeconds": 180,
+      "width": 1280,
+      "height": 720,
+      "videoCodec": "h264",
+      "audioCodec": "aac",
+      "sourceLocalPath": "output/video/产品独立演示/BCV-产品功能演示-180秒.mp4"
+    },
+    {
+      "id": "company-film",
+      "title": "彼慕智造公司宣传片 · 原创配乐门户版",
+      "path": "public/media/company-film.mp4",
+      "bytes": 11255454,
+      "sha256": "0583a5405bce82fb1d8202d9d90cb6228db54e441d31907704064ee288b0ebc4",
+      "durationSeconds": 200,
+      "width": 1280,
+      "height": 720,
+      "videoCodec": "h264",
+      "audioCodec": "aac",
+      "sourceLocalPath": "output/video/v6/彼慕智造-公司宣传片-200秒-钢琴配乐版.mp4"
+    }
+  ]
+}
